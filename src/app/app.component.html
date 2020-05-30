@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+
+    <span>Student-Portal</span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>menu</mat-icon> Menu</button>
+    
+</mat-toolbar>
+
+<mat-menu #appMenu="matMenu">
+  
+  <span class="alignright"></span>
+  <button mat-menu-item>
+    <mat-icon>assessment</mat-icon>
+    <span>Attendance</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>class</mat-icon>
+    <span>Extra-Curricular Activities</span>
+  </button>
+</mat-menu>
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Insert Record">Content 1</mat-tab>
+  <mat-tab label="Update Record">Content 2</mat-tab>
+  <mat-tab label="Delete Record">Content 3</mat-tab>
+</mat-tab-group>
+<img src="assets/Images/background.jpg" alt="">
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
