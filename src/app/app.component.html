@@ -20,11 +20,91 @@
 </mat-menu>
 
 <mat-tab-group mat-align-tabs="center">
-  <mat-tab label="Insert Record">Content 1</mat-tab>
-  <mat-tab label="Update Record">Content 2</mat-tab>
-  <mat-tab label="Delete Record">Content 3</mat-tab>
+  
+  <mat-tab label="Insert Record"><form  [formGroup] = "angForm" (ngSubmit)="onFormSubmit()" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <mat-label  *ngIf="name.invalid" [ngClass] = "'error'"> Name is Required</mat-label>
+     
+      <input matInput placeholder="Eg:Muskan Setia" formControlName="name" >
+    </mat-form-field>
+  
+    
+   
+      <mat-form-field class="example-full-width">
+        <mat-label>Roll Number</mat-label>
+        <mat-label  *ngIf="name.invalid" [ngClass] = "'error'"> Roll Number is Required</mat-label>
+        <input matInput placeholder="Ex. R110217XXX" formControlName="rollno">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Sap ID</mat-label>
+        <mat-label  *ngIf="name.invalid" [ngClass] = "'error'"> Sap ID is Required</mat-label>
+        <input matInput placeholder="Ex. 5000XXXXX" formControlName="sapid" >
+      </mat-form-field>
+      
+    
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Total Classes</mat-label>
+        <mat-label  *ngIf="name.invalid" [ngClass] = "'error'"> Total Classes are Required</mat-label>
+        <input matInput placeholder="Ex. 24" formControlName="totalclasses" >
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label> Total days Present</mat-label>
+        <mat-label  *ngIf="name.invalid" [ngClass] = "'error'"> Days present are required </mat-label>
+        <input matInput #TotaldaysPresent placeholder="Ex. 18" formControlName="dayspresent" >
+      <mat-hint align ="end"></mat-hint>
+      </mat-form-field></td>
+    </tr></table>
+  </form>
+  <div class="example-label"></div>
+  
+   
+    <button mat-stroked-button color="primary">Submit</button>
+</mat-tab>
+
+  <mat-tab label="Update Record"><form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Roll Number</mat-label>
+      <input matInput placeholder="Ex. R110217XXX">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Sap ID</mat-label>
+      <input matInput placeholder="Ex. 5000XXXXX">
+    </mat-form-field>
+    
+    
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Total Classes</mat-label>
+        <input matInput placeholder="Ex. 24">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label> Total days Present</mat-label>
+        <input matInput #TotaldaysPresent placeholder="Ex. 18">
+      <mat-hint align ="end"></mat-hint>
+      </mat-form-field></td>
+    </tr></table>
+  </form>
+  <div class="example-label"></div>
+  
+   
+    <button mat-stroked-button color="primary">Update</button>
+</mat-tab>
+  <mat-tab label="Delete Record"><form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Roll Number</mat-label>
+      <input matInput placeholder="Eg:R110217XXX">
+    </mat-form-field></form>
+      <div class="example-label"></div>
+      <button mat-stroked-button color="primary">Delete</button>
+    
+  </mat-tab>
 </mat-tab-group>
-<img src="assets/Images/background.jpg" alt="">
+
+
 
 
 
