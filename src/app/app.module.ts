@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ModuleWithProviders, NgModule} from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { MAT_LABEL_GLOBAL_OPTIONS, MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -41,7 +41,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-
 import { map, filter, switchMap } from 'rxjs/operators';
 
 @NgModule({
@@ -53,6 +52,10 @@ import { map, filter, switchMap } from 'rxjs/operators';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
+    FormGroup,
+    Validators,
+    FormControl,
     MatAutocompleteModule,
     MatBadgeModule,
     MatButtonModule,
@@ -87,6 +90,9 @@ import { map, filter, switchMap } from 'rxjs/operators';
     MatTooltipModule,
     MatTreeModule,
     MatNativeDateModule
+    
+    
+    
     ],
 exports: [
     MatAutocompleteModule,
@@ -122,22 +128,15 @@ exports: [
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FormGroup,
+    Validators,
+    FormControl
     ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class MaterialModule {
-  constructor(public matIconRegistry: MatIconRegistry) {
-      // matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
-  }
 
-  static forRoot(): ModuleWithProviders {
-      return {
-          ngModule: MaterialModule,
-          providers: [MatIconRegistry]
-      };
-  }
-}
+
 
