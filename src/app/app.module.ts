@@ -128,10 +128,8 @@ exports: [
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    MatNativeDateModule,
-    FormGroup,
-    Validators,
-    FormControl
+    MatNativeDateModule
+    
     ],
   providers: [],
   bootstrap: [AppComponent]
