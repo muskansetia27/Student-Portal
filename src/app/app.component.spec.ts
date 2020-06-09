@@ -1,12 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule
       ],
       declarations: [
         AppComponent
@@ -19,6 +22,7 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+  
 
   it(`should have as title 'studentPortal'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -33,3 +37,4 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span').textContent).toContain('studentPortal app is running!');
   });
 });
+

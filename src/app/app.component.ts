@@ -1,11 +1,13 @@
-
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
+import { Component, HostBinding } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
-
- 
-
 import 'rxjs/add/operator/map';
+import { ModuleWithProviders, NgModule} from '@angular/core';
+
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,10 @@ import 'rxjs/add/operator/map';
 export class AppComponent {
   title = 'studentPortal';
   
-  
 
-}
+  }
+
+
+
+
+

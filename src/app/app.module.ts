@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ModuleWithProviders, NgModule} from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MAT_LABEL_GLOBAL_OPTIONS, MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -41,18 +42,23 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-
 import { map, filter, switchMap } from 'rxjs/operators';
+import { BackendComponent } from './backend/backend.component';
+import { Connection } from '@angular/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BackendComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+   
     MatAutocompleteModule,
     MatBadgeModule,
     MatButtonModule,
@@ -87,6 +93,9 @@ import { map, filter, switchMap } from 'rxjs/operators';
     MatTooltipModule,
     MatTreeModule,
     MatNativeDateModule
+    
+    
+    
     ],
 exports: [
     MatAutocompleteModule,
@@ -123,21 +132,12 @@ exports: [
     MatTooltipModule,
     MatTreeModule,
     MatNativeDateModule
+    
     ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class MaterialModule {
-  constructor(public matIconRegistry: MatIconRegistry) {
-      // matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
-  }
 
-  static forRoot(): ModuleWithProviders {
-      return {
-          ngModule: MaterialModule,
-          providers: [MatIconRegistry]
-      };
-  }
-}
+
 
