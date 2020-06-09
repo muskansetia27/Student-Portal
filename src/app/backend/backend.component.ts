@@ -53,8 +53,10 @@ export class BackendComponent implements OnInit {
     formData.append('rollno', this.angForm.get('rollno').value);
     formData.append('totalclasses', this.angForm.get('totalclasses').value);
     formData.append('dayspresent', this.angForm.get('dayspresent').value);
+    const form = JSON.stringify(formData);
+    
 
-    this.httpClient.post('https://szelwh4c0d.execute-api.us-east-1.amazonaws.com/Final', formData).subscribe(
+    this.httpClient.post<JSON>('https://szelwh4c0d.execute-api.us-east-1.amazonaws.com/Final', form).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     )
