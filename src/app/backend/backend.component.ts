@@ -9,6 +9,8 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./backend.component.css']
 })
 export class BackendComponent implements OnInit {
+  postUrl:string ='https://szelwh4c0d.execute-api.us-east-1.amazonaws.com/Final';
+  headers = new HttpHeaders().set('content-type', 'application/json') ;
   angForm = new FormGroup({
     name: new FormControl('', Validators.required),
     rollno: new FormControl('', Validators.required),
@@ -47,18 +49,18 @@ export class BackendComponent implements OnInit {
     console.log('Days Present:' + this.angForm.get('dayspresent').value);
 
     
-    const formData= new FormData;
+    const formData= new FormData();
     formData.append('name', this.angForm.get('name').value);
     formData.append('sapid', this.angForm.get('sapid').value);
     formData.append('rollno', this.angForm.get('rollno').value);
     formData.append('totalclasses', this.angForm.get('totalclasses').value);
     formData.append('dayspresent', this.angForm.get('dayspresent').value);
     const form = JSON.stringify(formData);
-    
-
-    this.httpClient.post<JSON>('https://szelwh4c0d.execute-api.us-east-1.amazonaws.com/Final', form).subscribe(
+    this.httpClient.post(this.postUrl, form, { headers: new  HttpHeaders().set('content-type','application/json')}).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
+
+    
     )
   }
 }
